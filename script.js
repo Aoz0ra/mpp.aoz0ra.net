@@ -1355,7 +1355,7 @@ Rect.prototype.contains = function(x, y) {
 ////////////////////////////////////////////////////////////////
 
 	var channel_id = decodeURIComponent(window.location.hash.substr(1)) || "lobby";
-	var gClient = new Client("wss://ts.terrium.net:8443");
+	var gClient = new Client("wss://104.53.169.7:8443");
 	gClient.setChannel(channel_id);
 	gClient.start();
 
