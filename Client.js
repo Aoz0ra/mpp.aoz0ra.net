@@ -71,7 +71,17 @@ Client.prototype.connect = function() {
 	if(!this.canConnect || !this.isSupported() || this.isConnected() || this.isConnecting())
 		return;
 	this.emit("status", "Connecting...");
-	this.ws = new WebSocket(this.uri);
+
+	if(typeof module !== "undefined") {
+		// nodejsicle
+		this.ws = new WebSocket(this.uri, {
+			origin: "https://www.multiplayerpiano.com"
+		});
+	} else {
+		// browseroni
+		this.ws = new WebSocket(this.uri);
+	}
+
 	this.ws.binaryType = "arraybuffer";
 	var self = this;
 	this.ws.addEventListener("close", function(evt) {
