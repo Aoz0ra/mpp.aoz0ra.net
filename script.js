@@ -1267,26 +1267,26 @@ Rect.prototype.contains = function(x, y) {
 		"/sounds/Steinway_Grand/",
 		"/sounds/Emotional/",
 		"/sounds/Untitled/"*/
-		"https://aoz0ra.github.io/piano-sounds/Emotional",
-		"https://aoz0ra.github.io/piano-sounds/Emotional_2.0",
-		"https://aoz0ra.github.io/piano-sounds/GreatAndSoftPiano",
-		"https://aoz0ra.github.io/piano-sounds/HardAndToughPiano",
-		"https://aoz0ra.github.io/piano-sounds/HardPiano",
-		"https://aoz0ra.github.io/piano-sounds/Harp",
-		"https://aoz0ra.github.io/piano-sounds/Harpsicord",
-		"https://aoz0ra.github.io/piano-sounds/LoudAndProudPiano",
-		"https://aoz0ra.github.io/piano-sounds/MLG",
-		"https://aoz0ra.github.io/piano-sounds/Music_Box",
-		"https://aoz0ra.github.io/piano-sounds/NewPiano",
-		"https://aoz0ra.github.io/piano-sounds/Orchestra",
-		"https://aoz0ra.github.io/piano-sounds/Piano2",
-		"https://aoz0ra.github.io/piano-sounds/PianoSounds",
-		"https://aoz0ra.github.io/piano-sounds/Rhodes_MK1",
-		"https://aoz0ra.github.io/piano-sounds/SoftPiano",
-		"https://aoz0ra.github.io/piano-sounds/Steinway_Grand",
-		"https://aoz0ra.github.io/piano-sounds/Untitled",
-		"https://aoz0ra.github.io/piano-sounds/Vintage_Upright",
-		"https://aoz0ra.github.io/piano-sounds/Vintage_Upright_Soft"
+		"https://aoz0ra.github.io/piano-sounds/Emotional/",
+		"https://aoz0ra.github.io/piano-sounds/Emotional_2.0/",
+		"https://aoz0ra.github.io/piano-sounds/GreatAndSoftPiano/",
+		"https://aoz0ra.github.io/piano-sounds/HardAndToughPiano/",
+		"https://aoz0ra.github.io/piano-sounds/HardPiano/",
+		"https://aoz0ra.github.io/piano-sounds/Harp/",
+		"https://aoz0ra.github.io/piano-sounds/Harpsicord/",
+		"https://aoz0ra.github.io/piano-sounds/LoudAndProudPiano/",
+		"https://aoz0ra.github.io/piano-sounds/MLG/",
+		"https://aoz0ra.github.io/piano-sounds/Music_Box/",
+		"https://aoz0ra.github.io/piano-sounds/NewPiano/",
+		"https://aoz0ra.github.io/piano-sounds/Orchestra/",
+		"https://aoz0ra.github.io/piano-sounds/Piano2/",
+		"https://aoz0ra.github.io/piano-sounds/PianoSounds/",
+		"https://aoz0ra.github.io/piano-sounds/Rhodes_MK1/",
+		"https://aoz0ra.github.io/piano-sounds/SoftPiano/",
+		"https://aoz0ra.github.io/piano-sounds/Steinway_Grand/",
+		"https://aoz0ra.github.io/piano-sounds/Untitled/",
+		"https://aoz0ra.github.io/piano-sounds/Vintage_Upright/",
+		"https://aoz0ra.github.io/piano-sounds/Vintage_Upright_Soft/"
 	]);
 	gSoundSelector.init();
 
@@ -1354,12 +1354,8 @@ Rect.prototype.contains = function(x, y) {
 
 ////////////////////////////////////////////////////////////////
 
-	var channel_id = decodeURIComponent(window.location.pathname);
-	if(channel_id.substr(0, 1) == "/") channel_id = channel_id.substr(1);
-	if(channel_id == "") channel_id = "lobby";
-
-// 	var wssport = window.location.hostname == "www.multiplayerpiano.com"? 443 : 8443;
-	var gClient = new Client("wss://www.multiplayerpiano.com:443");
+	var channel_id = decodeURIComponent(window.location.hash.substr(1)) || "lobby";
+	var gClient = new Client("wss://ts.terrium.net:8443");
 	gClient.setChannel(channel_id);
 	gClient.start();
 
@@ -3175,4 +3171,3 @@ Rect.prototype.contains = function(x, y) {
 	document.addEventListener("click", onClick);
 	
 });
-
